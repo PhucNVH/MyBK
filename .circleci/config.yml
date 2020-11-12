@@ -25,7 +25,7 @@ jobs:
           command: yarn eslint
 
 workflows:
-  build_android:
+  build:
     jobs:
       # Checkout the code and persist to the Workspace
       # Note: This is a job which is defined above and not part of the Orb

@@ -18,6 +18,7 @@ export default class App extends React.Component {
         set: (status, title, content, type) =>
           this.setMessage(status, title, content, type),
       },
+
       loaded: false,
       login: false,
       csrf_token: '',
