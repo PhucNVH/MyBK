@@ -29,16 +29,28 @@ workflows:
     jobs:
       # Checkout the code and persist to the Workspace
       # Note: This is a job which is defined above and not part of the Orb
-      - checkout_code
+      - checkout_code:
+          filters:
+            branches:
+              only:
+                - master
 
       # Analyze the Javascript using ESLint, Flow, and Jest
       # Note: This is a job which is defined above and not part of the Orb
       - analyse_js:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - checkout_code
 
       # Build the Android app in debug mode
       - rn/android_build:
+          filters:
+            branches:
+              only:
+                - master
           name: build_android_debug
           project_path: 'android'
           build_type: debug
